@@ -1,0 +1,41 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+:token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.g79NDlbLt6oLJmuvgEHPzU_L_7AT1VaWrI5zwYd5YAw
+# :token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIiwiZXhwIjoxNzI1Njg1NjE4fQ.VuUi9nW0ffdj-AuV18MSEa8iWYB-Um6pdxTDWMvtLT0
+
+# :token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIiwiZW1haWwiOiJ0ZXN0QHRlc3RpbmcuY29tIn0.383oHi0YY5nUzzgQ4JHHGth43qB2C71_Y6vtxIwB4o4
+
+# Return api details
+
+GET http://localhost:3000
+Authorization: Bearer :token
+
+# List all tasks
+
+GET http://localhost:3000/todos
+Authorization: Bearer :token
+
+# Create new task
+
+POST http://localhost:3000/todos
+Content-Type: application/json
+Authorization: Bearer :token
+{ "task": "does this work?" }
+
+# Update existing task
+
+PATCH http://localhost:3000/todos
+Content-Type: application/json
+Authorization: Bearer :token
+{ "done": true }
+
+# Testing filtering
+
+GET http://localhost:3000/todos?done=is.true
+Authorization: Bearer :token
+
+#
+
+GET http://localhost:3000/todos?id=eq.3
+Authorization: Bearer :token
